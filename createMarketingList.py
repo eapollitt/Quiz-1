@@ -64,7 +64,7 @@ for record in csvfile:
     dictionary1[full_name] = {'email': email, 'phone': phone}
     
 for x in dictionary1: 
-    outfile.write(x[full_name]+ ','+x[full_name][email]+ "," + x[full_name][phone] + "\n")
+    outfile.write(x['full_name']+ ','+ x['full_name']['email']+ "," + x['full_name']['phone'] + "\n")
 
 
     #outfile.write(x["fullname"])+","+x[full_name]["email"] + "," + x[full_name]["phone"] + "\n")
