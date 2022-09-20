@@ -3,6 +3,15 @@
 # and the value is a dictionary where the keys are 'email' and 'phone' and the values
 # are the corresponding email address and phone number of the customer. 
 
+
+
+
+
+
+
+
+
+
 # Once the dictionary has been completed print it out. It shoud resemble what is shown
 # below (first 2 and last 2 elements shown only):
 
@@ -10,7 +19,7 @@
 # 'Obadiah Godfery': {'email': 'ogodfery1@a8.net', 'phone': '560-745-9361'}......
 # ..........'Kessiah Tynemouth': {'email': 'ktynemouthdu@ning.com', 'phone': '690-215-8097'}, 
 # 'Carmela Kaubisch': {'email': 'ckaubischdv@wikia.com', 'phone': '307-726-6526'}}
-
+#{'Tommie Goody': {'email': 'tgoody0@weather.com', 'phone': '809-992-7298'}, 'Obadiah Godfery': {'email': 'ogodfery1@a8.net', 'phone': '560-745-9361'}, 'Hewe Andriulis': {'email': 'handriulis2@auda.org.au', 'phone': '637-129-6073'}, 
 
 # Using the dictionary, write the contents to a csv file. The output file shoud be exactly as
 # what is shown in the file - marketinglist.csv.
@@ -24,27 +33,52 @@
 import csv
 
 # open the vendorlist file
-
+infile = open("VendorList.csv","r")
 
 # create a csv object from the file object
 
-
+csvfile = csv.reader(infile, delimiter = ',')
 # create an output file
+outfile = open("MarketinglistFINAL.csv","w")
 
 
-
+next(csvfile)
 
 
 # create an empty dictionary
+dictionary1 = {}
 
-
-
+outfile.write("Name,Email,Phone\n")
 # iterate through the csv object
+#for record in csvfile: 
+   #dictionary1["full_name"]= str(record[1] + " " + record[2])[]
+   #dictionary1["full_name"]["email"] = str(record[4])
+  # dictionary1["full_name"]["phone"] = str(record[5])
+for record in csvfile: 
+    #dictionary1 = {[record[1]+ " " + record[2]] : {'email' = record[4], ["phone"] = record[5]}}
+    full_name = record[1] + " " + record[2]
+    email = record[4]
+    phone = record[5]
 
 
+    dictionary1[full_name] = {'email': email, 'phone': phone}
+    
+for x in dictionary1: 
+    outfile.write(x[full_name]+ ','+x[full_name][email]+ "," + x[full_name][phone] + "\n")
 
 
-    # add the key-value pair to the dictionary
+    #outfile.write(x["fullname"])+","+x[full_name]["email"] + "," + x[full_name]["phone"] + "\n")
+
+#outfile.write(str(dictionary1[full_name])+ ','+str(dictionary1[full_name][email])+ "," + str(dictionary1[full_name][phone]) + "\n")
+
+outfile.close()
+#print(full_name)
+#print(email)
+#print(phone)
+
+print(dictionary1)
+
+    # add the key-value pair to the dictionary"
 
 
 
