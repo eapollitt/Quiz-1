@@ -39,14 +39,17 @@ infile = open("VendorList.csv","r")
 
 csvfile = csv.reader(infile, delimiter = ',')
 # create an output file
+next(csvfile)
 outfile = open("MarketinglistFINAL.csv","w")
 
 
-next(csvfile)
+#next(csvfile)
 
 
 # create an empty dictionary
-dictionary1 = {}
+#dictionary1 = {}
+
+contactinfo = {}
 
 outfile.write("Name,Email,Phone\n")
 # iterate through the csv object
@@ -57,14 +60,18 @@ outfile.write("Name,Email,Phone\n")
 for record in csvfile: 
     #dictionary1 = {[record[1]+ " " + record[2]] : {'email' = record[4], ["phone"] = record[5]}}
     full_name = record[1] + " " + record[2]
-    email = record[4]
-    phone = record[5]
+    emailaddress = record[4]
+    phonenumber = record[5]
 
 
-    dictionary1[full_name] = {'email': email, 'phone': phone}
-    
-for x in dictionary1: 
-    outfile.write(x['full_name']+ ','+ x['full_name']['email']+ "," + x['full_name']['phone'] + "\n")
+    contactinfo[full_name] = {'email': emailaddress, 'phone': phonenumber}
+ 
+print(contactinfo)
+#for x in dictionary1: 
+for x in contactinfo:
+   outfile.write(key+","+contactinfo[key]['email']+','+contactinfo[key]['phone']+'\n')
+    #outfile.write(x['full_name']+ ','+ x['full_name']['email']+ "," + x['full_name']['phone'] + "\n")
+      
 
 
     #outfile.write(x["fullname"])+","+x[full_name]["email"] + "," + x[full_name]["phone"] + "\n")
@@ -76,7 +83,7 @@ outfile.close()
 #print(email)
 #print(phone)
 
-print(dictionary1)
+#print(dictionary1)
 
     # add the key-value pair to the dictionary"
 
